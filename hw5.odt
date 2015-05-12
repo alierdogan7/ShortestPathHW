@@ -1,0 +1,90 @@
+﻿Ali Burak Erdoğan
+CS202-3
+HW #5, 11.05.2015
+Question 1)
+DFS: C, B, A, D, E, F, G, H 
+Stack Representation:
+C
+C, B
+C, B, A
+C, B
+C
+C, D
+C, D, E
+C, D, E, F
+C, D, E, F, G
+C, D, E, F, G, H
+C, D, E, F, G
+C, D, E, F
+C, D, E
+C, D
+C
+-
+BFS:  C, B, D, F, A, E, G, H
+Queue Representation:
+C
+-
+B, D, F
+D, F
+D, F, A
+F, A
+F, A, E
+A, E
+A, E, G
+E, G
+G
+G, H
+H
+-
+
+Question 2)
+
+A
+B
+C
+D
+E
+F
+A
+0
+15, A
+4, A
+∞
+∞
+∞
+C
+0
+12, C
+4, A
+7, C
+∞
+∞
+D
+0
+12, C
+4, A
+7, C
+9, D
+∞
+E
+0
+10, E
+4, A
+7, C
+9, D
+19, E
+B
+0
+10, E
+4, A
+7, C
+9, D
+17, B
+F
+0
+10, E
+4, A
+7, C
+9, D
+17, B
+

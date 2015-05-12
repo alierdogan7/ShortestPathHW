@@ -1,0 +1,8 @@
+7
+0 Tekirdag 2 2 1
+1 Edirne 2 0 2
+2 Istanbul 3 0 3 1
+3 Ankara 2 2 4
+4 Afyon 3 3 5 6
+5 Antalya 2 4 6
+6 Denizli 2 5 4
