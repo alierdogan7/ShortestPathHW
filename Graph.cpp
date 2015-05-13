@@ -49,26 +49,12 @@ struct minHeapComparator {
     bool operator()(const int& a, const int& b) { return a > b; }
 };
 
-void Graph::dijkstra( Graph& graph, int source, int*& distances, int*& prevs)
+void Graph::dijkstra( int source, int*& distances, int*& prevs)
 {
     //vector<int> distances(size); dynamicly allocated no need to deallocation
 
     priority_queue<int, vector<int>, minHeapComparator> tmpDistances;
     prevs = new int[this->numVertices];
 
-    /*tmp.push(3);
-    tmp.push(25);
-    tmp.push(12);
-    tmp.push(9);
-    tmp.push(41);
-    tmp.push(55);
-    tmp.push(56);
-    tmp.push(1);
-
-    while(!tmp.empty())
-    {
-        cout << tmp.top() << endl;
-        tmp.pop();
-    }*/
 
 }

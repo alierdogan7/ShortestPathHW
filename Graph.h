@@ -9,10 +9,10 @@ class Graph
 public:
     Graph();
     ~Graph();
-    void dijkstra( Graph& graph, int source, int*& distances, int*& prevs);
+    void dijkstra( int source, int*& distances, int*& prevs);
 
 private:
-    City *adjList;
+    City **adjList;
     int numVertices;
 };
 

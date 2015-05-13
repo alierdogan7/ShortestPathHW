@@ -11,6 +11,15 @@ class City {
 public:
     City();
     ~City();
+    void setId( int id);
+    void setName( string name );
+    void setDegree( int degree );
+    void setNeighborIds( int* neighborIds, int size );
+    int getId();
+    string getName();
+    int getDegree();
+    int* getNeighborIds();
+    void show();
 
 private:
     int id;
