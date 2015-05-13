@@ -32,7 +32,7 @@ int main( int argc, char **arg )
 
 }
 
-//loading all the tasks from input file to an array
+//loading all the cities from input file to an array
 bool loadInput( char *fileName, City **&adjList, int& numVertices )
 {
 
@@ -92,7 +92,7 @@ bool loadInput( char *fileName, City **&adjList, int& numVertices )
             tmpCity->setNeighborIds(tmpNeighborIds, degree);
 
             //tmpTask->show();
-            adjList[count] = tmpCity;
+            adjList[tmpCity->getId()] = tmpCity; //insert the city object to the corresponding index of the array
             count++;
 
         } //end of while loop
