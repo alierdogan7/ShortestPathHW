@@ -21,6 +21,7 @@
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option parameters="input.txt Ankara Denizli " />
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>
@@ -31,6 +32,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-g" />
 		</Compiler>
 		<Unit filename="City.cpp" />
 		<Unit filename="City.h" />

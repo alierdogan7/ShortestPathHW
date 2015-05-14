@@ -7,13 +7,20 @@
 class Graph
 {
 public:
-    Graph();
+    Graph( City **adjList, int numVertices);
     ~Graph();
-    void dijkstra( int source, int*& distances, int*& prevs);
+    void dijkstra( int source );
+    void printShortestPath( string source, string destination);
+    int getCityIdByName( string name);
+    void printCurrDistAndPrevs();
 
 private:
     City **adjList;
     int numVertices;
+
+    //the prev. cities and distance values arrays according to the last given source city
+    int *prevs;
+    int *distances;
 };
 
 #endif

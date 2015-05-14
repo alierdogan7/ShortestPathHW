@@ -13,6 +13,11 @@ City::City()
     this->neighborIds = NULL;
 }
 
+City::~City()
+{
+    delete []this->neighborIds;
+}
+
 void City::setId( int id) { this->id = id; }
 void City::setName( string name ) { this->name = name; }
 void City::setDegree( int degree ) { this->degree = degree; }

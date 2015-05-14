@@ -24,12 +24,13 @@ int main( int argc, char **arg )
     int numVertices;
     loadInput(arg[1], adjList, numVertices);
 
-    for(int i = 0; i < numVertices; i++)
-        (adjList[i])->show();
+    //for(int i = 0; i < numVertices; i++) (adjList[i])->show();
 
+    Graph g(adjList, numVertices);
+    g.dijkstra(0);
+    g.printShortestPath(arg[2], arg[3]);
 
     return 0;
-
 }
 
 //loading all the cities from input file to an array
