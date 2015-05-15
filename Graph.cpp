@@ -68,7 +68,7 @@ Graph::~Graph()
 int Graph::getCityIdByName( string name)
 {
     for( int i = 0; i < this->numVertices; i++)
-        if( name.compare( (this->adjList[i])->getName() ) )
+        if( name.compare( (this->adjList[i])->getName() ) == 0)
             return (this->adjList[i])->getId();
     return -1;
 }
@@ -78,6 +78,8 @@ void Graph::printShortestPath( string source, string destination)
     int sourceIndex, destIndex;
     sourceIndex = this->getCityIdByName( source );
     destIndex = this->getCityIdByName( destination );
+
+    cout << "sourceIndex " << sourceIndex << " destIndex " << destIndex << endl;
 
     //start from the destination, trace the path towards the source using a STACK
     stack<int> path;
@@ -89,7 +91,6 @@ void Graph::printShortestPath( string source, string destination)
         path.push( this->prevs[currIndex] ); //push the prev. val
         currIndex = this->prevs[currIndex]; // update the curr. index
     }
-    path.push( currIndex ); //push the source
 
     cout << "The shortest path from " << source << " to " << destination << " is " << path.size() << " along cities and it's like below: " << endl;
     while( !path.empty() )
@@ -107,6 +108,7 @@ void Graph::dijkstra( int source )
     //vector<int> distances(size); dynamicly allocated no need to deallocation
 
     //priority_queue<int, vector<int>, minHeapComparator> tmpDistances;
+    bool firstIteration = true;
     bool isDone = false;
     this->prevs = new int[this->numVertices];
     this->distances = new int[this->numVertices];
@@ -123,7 +125,7 @@ void Graph::dijkstra( int source )
     {
         prevs[i] = -1; // prev. is null
 
-        this->distances[i] = 9999;
+        this->distances[i] = 9999; //distance is infinite
         (i == source) && ( this->distances[i] = 0); //initialize the source's distance with 0
 
     }
@@ -133,17 +135,37 @@ void Graph::dijkstra( int source )
 
     while(!isDone)
     {
-        //choose the min. distance from unfinished paths
-        //since the 0th elem. is source and the distance is always zero, we start from 1st element
-        (source == 0)int minIndex = 1;
-        for(int i = 0; i < numVertices; i++)
-        {
-            //if that path is completed, just ignore
-            if( completedPaths[i] )
-                continue;
+        //for each iteration of the loop, determine the initial minIndex value
+        //initial minIndex is the first index with an uncompleted path
+        int minIndex;
 
-            if( this->distances[i] <= this->distances[minIndex] )
-                minIndex = i; // we have a new min. distance
+        //in the first iteration, do relaxation with the source node
+        if( firstIteration)
+        {
+            minIndex = source;
+            firstIteration = false;
+        }
+        else
+        {
+            for(int i = 0; i < numVertices; i++ )
+            {
+                if( !completedPaths[i])
+                {
+                    minIndex = i;
+                    break;
+                }
+            }
+
+            //now starting from the initial minIndex, search for real min. index
+            for(int i = 0; i < numVertices; i++)
+            {
+                //if that path is completed, just ignore
+                if( completedPaths[i] )
+                    continue;
+
+                if( this->distances[i] < this->distances[minIndex] )
+                    minIndex = i; // we have a new min. distance
+            }
         }
 
         //according to the Dijkstra's algorithm, the chosen one with min. distance is a completed path from now on.

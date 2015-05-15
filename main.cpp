@@ -27,7 +27,8 @@ int main( int argc, char **arg )
     //for(int i = 0; i < numVertices; i++) (adjList[i])->show();
 
     Graph g(adjList, numVertices);
-    g.dijkstra(0);
+
+    g.dijkstra( g.getCityIdByName(arg[2]) );
     g.printShortestPath(arg[2], arg[3]);
 
     return 0;

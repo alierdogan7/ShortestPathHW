@@ -1,0 +1,16 @@
+15
+0 Ardahan 1 1
+1 Kars 3 0 2 3
+2 Igdir 2 1 3
+3 Agri 5 1 2 4 6 7
+4 Van 4 3 7 8 5
+5 Hakkari 2 4 9
+6 Mus 5 3 7 11 12 10
+7 Bitlis 5 6 3 4 8 12
+8 Siirt 4 7 4 9 12
+9 Sirnak 4 8 5 12 14
+10 Bingol 2 6 11
+11 Diyarbakir 5 6 10 12 13 14
+12 Batman 6 7 8 9 14 11 6
+13 Sanliurfa 2 11 14
+14 Mardin 4 13 11 12 9
